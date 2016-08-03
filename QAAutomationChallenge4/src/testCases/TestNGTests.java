@@ -1,6 +1,9 @@
 package testCases;
 
+import java.util.concurrent.TimeUnit;
+
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.Assert;
 import org.testng.Reporter;
 import org.testng.annotations.AfterTest;
@@ -20,6 +23,9 @@ public class TestNGTests {
 	public void Setup()
 	{
 		reporter = new Reporter();
+		browserDriver = new ChromeDriver();
+		browserDriver.manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
+		SkiUtahHomePage page = new SkiUtahHomePage(browserDriver);
 	}
 
 	/**
@@ -62,6 +68,6 @@ public class TestNGTests {
 
 	@AfterTest
 	public void closeBrowser() {
-		browserDriver.quit();
+		//browserDriver.quit();
 	}
 }
