@@ -68,6 +68,6 @@ public class TestNGTests {
 
 	@AfterTest
 	public void closeBrowser() {
-		//browserDriver.quit();
+		browserDriver.quit();
 	}
 }
